@@ -1,11 +1,19 @@
 <p>&nbsp;&nbsp;poll&nbsp;</p>
+
+<head>
+    <meta charset="utf-8">
+
+
+
+</head>
+
 <!--<div id="container" style="width: 500px;">-->
 <div id="header" style="background-color: #ffa500;">
     <h1 style="margin-bottom: 0;">demo</h1>
 </div>
 
 
-<div id="menu" style="background-color: #ffd700; height: 300px; width: 100px; float: left; text-align: center;">
+<div id="rank" style="background-color: #ffd700; height: 300px; width: 100px; float: left; text-align: center;">
     <p><video autoplay muted loop="loop" width="90" height="54">
         <source src="1.mp4" type="video/mp4" /></video></p>
     <p><video autoplay muted loop="loop" width="90" height="54">
@@ -16,32 +24,34 @@
         <source src="4.mp4" type="video/mp4" /></video></p>
 </div>
 
-<div id="content" style="background-color: #eeeeee;height: 300px;  text-align: center;">
-    <p><video controls="controls" width="800" height="280">
-        <source src="1.mp4" type="video/mp4" /></video></p>
+<div id="main" style="background-color: #eeeeee;height: 300px;  text-align: center;">
+    <p><video  id="main_play" controls="controls" width="800" height="280">
+        <source id="main_window" src="4.mp4 " type="video/mp4" /></video></p>
 </div>
 
 <div id="footer" style="background-color: #ffa500; clear: both;">
-    <div id="content" style="background-color: #ffa500; float: left; text-align: center;">
-        <p><video autoplay muted loop="loop" width="90" height="54">
-            <source src="1.mp4" type="video/mp4" /></video></p>
+    <div  id="content0" style="background-color: #ffa500; float: left; text-align: center;">
+        <p><video   autoplay muted loop="loop" width="90" height="54">
+            <source id="source0" src="1.mp4" type="video/mp4"  /></video></p>
     </div>
-    <div id="content" style="background-color: #ffa500; float: left; text-align: center;">
+    <div id="content1" style="background-color: #ffa500; float: left; text-align: center;">
         <p><video autoplay muted loop="loop" width="90" height="54">
-            <source src="2.mp4" type="video/mp4" /></video></p>
+            <source id="source1"src="2.mp4" type="video/mp4" /></video></p>
     </div>
-    <div id="content" style="background-color: #ffa500; float: left; text-align: center;">
+    <div id="content2" style="background-color: #ffa500; float: left; text-align: center;">
         <p><video autoplay muted loop="loop" width="90" height="54">
-            <source src="3.mp4" type="video/mp4" /></video></p>
+            <source id="source2"src="3.mp4" type="video/mp4" /></video></p>
     </div>
-    <div id="content" style="background-color: #ffa500; float: left; text-align: center;">
+    <div id="content3" style="background-color: #ffa500; float: left; text-align: center;">
         <p><video autoplay muted loop="loop" width="90" height="54">
-            <source src="4.mp4" type="video/mp4" /></video></p>
+            <source id="source3"src="4.mp4" type="video/mp4" /></video></p>
     </div>
-    <div id="content" style="background-color: #ffa500; float: left; text-align: center;">
+    <div id="content4" style="background-color: #ffa500; float: left; text-align: center;">
         <p><video autoplay muted loop="loop" width="90" height="54">
-            <source src="1.mp4" type="video/mp4" /></video></p>
+            <source id="source4" src="1.mp4" type="video/mp4" /></video></p>
     </div>
 
 </div>
 <!--</div>-->
+
+<script src="controller.js"></script>
