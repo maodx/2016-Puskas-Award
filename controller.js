@@ -1,15 +1,6 @@
 /**
  * Created by internazionale on 2016-12-07.
  */
-function loadVideo(src_path)
-{
-    console.log('src_path');
-    document.getElementById("main_window").src=src_path;
-}
-
-function test(id){
-    alert(id);
-}
 
  var contents = new Array( );
 var sources = new Array( );
@@ -19,7 +10,6 @@ var sources = new Array( );
      contents[i] = document.getElementById("content" + i);
      sources[i]= document.getElementById("source" + i);
      console.log(contents[i]);
-
  }
 
 contents[0].onclick = function()
