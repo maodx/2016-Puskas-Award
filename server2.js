@@ -34,6 +34,19 @@ http.createServer(function (req, res) {
       res.write(controller);
       res.end();
   }
+  else if(req.url=="/0")
+  {
+      function keysrt(key,desc) {
+          return function(a,b){
+              return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+          }
+      }
+      counter.sort(keysrt('count',true));
+      res.writeHead(200, { "Content-Type": "text" });
+      res.write(counter[0].url+";"+counter[1].url+";"+counter[2].url+";"+counter[3].url+";"+
+          counter[0].count+";"+counter[1].count+";"+counter[2].count+";"+counter[3].count );
+      res.end();
+  }
   else if(req.url=="/1"||req.url=="/2"||req.url=="/3"||req.url=="/4"||req.url=="/5")
   {
 
@@ -44,7 +57,7 @@ http.createServer(function (req, res) {
               ++obj.count;
           }
       }).filter(isFinite)
-      console.log(counter);//2333333333333333333333333333333333
+
      // ++counter[counter_index].count;
       function keysrt(key,desc) {
           return function(a,b){
@@ -52,8 +65,10 @@ http.createServer(function (req, res) {
           }
       }
       counter.sort(keysrt('count',true));
+      console.log(counter);//2333333333333333333333333333333333
       res.writeHead(200, { "Content-Type": "text" });
-      res.write(counter[0].url+";"+counter[1].url+";"+counter[2].url+";"+counter[3].url );
+      res.write(counter[0].url+";"+counter[1].url+";"+counter[2].url+";"+counter[3].url+";"+
+          counter[0].count+";"+counter[1].count+";"+counter[2].count+";"+counter[3].count );
       res.end();
   }
   else {
