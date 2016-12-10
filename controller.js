@@ -12,6 +12,44 @@ var sources = new Array( );
      console.log(contents[i]);
  }
 
+function countChanger(video_src)
+{
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+    {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            var updated_url=xmlhttp.responseText;
+            var new_urls=updated_url.split(";");
+
+            for(var i=1;i<5;++i)
+            {
+                document.getElementById('rank_source'+i).src = new_urls[i-1];
+                console.log(document.getElementById('rank_source'+i).src);
+                //console.log(outer_div);
+                //outer_div.getElementById('rank_source').src = new_urls[i-1];
+                var temp=document.getElementById('vedio'+i);
+                temp.load();
+                temp.play();
+
+            }
+        }
+    }
+    xmlhttp.open("GET",video_src,true);
+    xmlhttp.send();
+
+}
+
 contents[0].onclick = function()
 {
     console.log(document.getElementById('main_window').src);
@@ -19,6 +57,7 @@ contents[0].onclick = function()
     var temp=document.getElementById('main_play')
     temp.load();
     temp.play();
+    countChanger(1);
 };
 contents[1].onclick = function()
 {
@@ -27,6 +66,7 @@ contents[1].onclick = function()
     var temp=document.getElementById('main_play')
     temp.load();
     temp.play();
+    countChanger(2);
 };
 contents[2].onclick = function()
 {
@@ -35,6 +75,7 @@ contents[2].onclick = function()
     var temp=document.getElementById('main_play')
     temp.load();
     temp.play();
+    countChanger(3);
 };
 contents[3].onclick = function()
 {
@@ -43,6 +84,7 @@ contents[3].onclick = function()
     var temp=document.getElementById('main_play')
     temp.load();
     temp.play();
+    countChanger(4);
 };
 contents[4].onclick = function()
 {
@@ -51,6 +93,7 @@ contents[4].onclick = function()
     var temp=document.getElementById('main_play')
     temp.load();
     temp.play();
+    countChanger(5);
 };
 /*
  console.log(contents[1]);

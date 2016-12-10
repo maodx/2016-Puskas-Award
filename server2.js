@@ -17,18 +17,43 @@ fs.readFile(path.resolve(__dirname,"controller.js"), function (err, data) {
     controller = data;
 });
 
+var counter = [{name:1,url: '/1.mp4', count: 0},{name:2,url: '/2.mp4', count: 0},{name:3,url: '/3.mp4', count: 0},
+    {name:4,url: '/4.mp4', count: 0},{name:5,url: '/5.mp4', count: 0}]
+
 http.createServer(function (req, res) {
 	
-  if (req.url == "/" || req.url == '/favicon.ico') {
+  if (req.url == "/" || req.url == '/favicon.ico')
+  {
     res.writeHead(200, { "Content-Type": "text/html" });
     res.write(indexPage);
-
 	res.end();
   }
   else if(req.url=="/controller.js")
   {
       res.writeHead(200, { "Content-Type": "text/js" });
       res.write(controller);
+      res.end();
+  }
+  else if(req.url=="/1"||req.url=="/2"||req.url=="/3"||req.url=="/4"||req.url=="/5")
+  {
+
+    counter_index=Number(req.url.slice(1));
+      console.log(counter_index);
+      counter.map(function(obj) {
+          if(obj.name == counter_index) {
+              ++obj.count;
+          }
+      }).filter(isFinite)
+      console.log(counter);//2333333333333333333333333333333333
+     // ++counter[counter_index].count;
+      function keysrt(key,desc) {
+          return function(a,b){
+              return desc ? ~~(a[key] < b[key]) : ~~(a[key] > b[key]);
+          }
+      }
+      counter.sort(keysrt('count',true));
+      res.writeHead(200, { "Content-Type": "text" });
+      res.write(counter[0].url+";"+counter[1].url+";"+counter[2].url+";"+counter[3].url );
       res.end();
   }
   else {
